@@ -25,14 +25,14 @@ class Xylophone extends StatefulWidget {
 }
 
 class _XylophoneState extends State<Xylophone> {
-  void playNote(int id) {
+  void playNote(int id) async {
     final audioPlayer = AudioPlayer();
-    audioPlayer.play(DeviceFileSource('note$id.wav'));
+    await audioPlayer.play(AssetSource('note$id.wav'));
   }
 
   Widget createButton(Color color, int position) {
     return ElevatedButton(
-      onPressed: () {
+      onPressed: () async {
         playNote(position);
       },
       child: Text(''),
