@@ -43,6 +43,7 @@ class _XylophoneState extends State<Xylophone> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black,
       body: SafeArea(
         child: Container(
           child: Column(
