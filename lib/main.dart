@@ -1,5 +1,5 @@
-import "package:flutter/material.dart";
 import 'package:audioplayers/audioplayers.dart';
+import "package:flutter/material.dart";
 
 void main() {
   runApp(XylophoneApp());
@@ -25,9 +25,16 @@ class Xylophone extends StatefulWidget {
 }
 
 class _XylophoneState extends State<Xylophone> {
+  void playNote(int id) {
+    final audioPlayer = AudioPlayer();
+    audioPlayer.play(DeviceFileSource('note$id.wav'));
+  }
+
   Widget createButton(Color color, int position) {
     return ElevatedButton(
-      onPressed: () {},
+      onPressed: () {
+        playNote(position);
+      },
       child: Text(''),
       style: ElevatedButton.styleFrom(primary: color),
     );
@@ -39,14 +46,29 @@ class _XylophoneState extends State<Xylophone> {
       body: SafeArea(
         child: Container(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              createButton(Colors.red, 1),
-              createButton(Colors.green, 1),
-              createButton(Colors.purple, 1),
-              createButton(Colors.yellow, 1),
-              createButton(Colors.indigo, 1),
-              createButton(Colors.blue, 1),
-              createButton(Colors.lime, 1),
+              Expanded(
+                child: createButton(Colors.red, 1),
+              ),
+              Expanded(
+                child: createButton(Colors.orange, 2),
+              ),
+              Expanded(
+                child: createButton(Colors.purple, 3),
+              ),
+              Expanded(
+                child: createButton(Colors.yellow, 4),
+              ),
+              Expanded(
+                child: createButton(Colors.indigo, 5),
+              ),
+              Expanded(
+                child: createButton(Colors.blue, 6),
+              ),
+              Expanded(
+                child: createButton(Colors.cyan, 7),
+              ),
             ],
           ),
         ),
