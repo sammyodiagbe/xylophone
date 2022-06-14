@@ -31,12 +31,14 @@ class _XylophoneState extends State<Xylophone> {
   }
 
   Widget createButton(Color color, int position) {
-    return ElevatedButton(
-      onPressed: () async {
-        playNote(position);
-      },
-      child: Text(''),
-      style: ElevatedButton.styleFrom(primary: color),
+    return Expanded(
+      child: ElevatedButton(
+        onPressed: () async {
+          playNote(position);
+        },
+        child: Text(''),
+        style: ElevatedButton.styleFrom(primary: color),
+      ),
     );
   }
 
@@ -49,27 +51,13 @@ class _XylophoneState extends State<Xylophone> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Expanded(
-                child: createButton(Colors.red, 1),
-              ),
-              Expanded(
-                child: createButton(Colors.orange, 2),
-              ),
-              Expanded(
-                child: createButton(Colors.purple, 3),
-              ),
-              Expanded(
-                child: createButton(Colors.yellow, 4),
-              ),
-              Expanded(
-                child: createButton(Colors.indigo, 5),
-              ),
-              Expanded(
-                child: createButton(Colors.blue, 6),
-              ),
-              Expanded(
-                child: createButton(Colors.cyan, 7),
-              ),
+              createButton(Colors.red, 1),
+              createButton(Colors.orange, 2),
+              createButton(Colors.purple, 3),
+              createButton(Colors.yellow, 4),
+              createButton(Colors.indigo, 5),
+              createButton(Colors.blue, 6),
+              createButton(Colors.green, 7),
             ],
           ),
         ),
